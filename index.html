@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK SHOP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style type="text/css">
+    html{
+        scroll-behavior:smooth;
+    }
+    body{
+        padding:0;
+        margin:0;
+        overflow-x:hidden;
+    }
+    #container{
+        margin:0;
+        padding:0;
+    }
+    a{
+        text-decoration:none;
+        color:black;
+    }
+    #container{
+        width:100%;
+        height:max-content;
+    }
+    #navbar{
+        margin:0;
+        padding:0;
+        width: 100%;
+        height:85px;
+        background-color:#daeeae ;
+        position:fixed;
+        z-index:2;
+    }
+    #bookshoplogo img{
+        margin:0 20px 0 20px;
+        padding-bottom: 0;
+    }
+    #bookshoplogo p{
+        background-color:#de7d65;
+        color:white;
+        width: 90px;
+        position: relative;
+        right: 3px;
+        margin:0 20px 0 20px;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size:small;
+    }
+    #top-menu{
+        margin:0;
+        width: 1500px;;
+        height: 85px;
+        position: relative;
+        top:-90px;
+        left: 200px;;
+        float:left;
+        padding:px;
+    }
+    #top-menu a{
+        color: #000000; 
+        transition: color 0.3s; 
+    }
+    #top-menu a:hover{
+        color: #b107ea;
+    }
+    #top-menu li{
+        padding: 15px 90px 0 5px;
+        font-size: large;
+        font-family: Arial, Helvetica, sans-serif;
+        list-style: none;
+        float:left;   
+    }
+    #home{
+        margin:0;
+        padding:0;
+        width:100%;
+        height: 730px;
+        background-color: aliceblue;
+        background-image: url("images/homeback.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        padding:0 0 0 50px;
+    }
+    #home h1{
+        margin:0;
+        padding:200px 0 200px 100px;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size:xx-large;
+        color: rgb(255, 0, 0);
+    }
+    #introsection{
+        display:flex;
+        height:650px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        z-index: 1;
+        padding:75px 0 0 10px;
+    }
+    .name{
+        border: 2px solid black;
+        margin:12px;
+        width: 122px;
+        height: 625px;
+        flex-grow: 3;
+    }
+    .coverpage{
+        border: 2px solid black;
+        margin:12px;
+        width: 122px;
+        height: 625px;
+        flex-grow: 3;
+        background-image: url("images/coverpage.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    .name h1{
+        font-style:italic;
+        color:rgb(9, 85, 89);
+    }
+    .shopname{
+        color:red;
+        font-size:larger;
+        font-weight: bolder;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        position:relative;
+        top:100px;
+        left:250px;
+    }
+    .shopsubtitle{
+        color:rgb(19, 13, 7);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bolder;
+        font-size:xx-large;
+        position:relative;
+        top: 105px;
+        left:200px;
+    }
+    .button{
+        color:rgb(28, 22, 137);
+        position:relative;
+        top:110px;
+        left:300px;
+        width:150px;
+        height:50px;
+        border-radius: 15px;
+        background-color: rgb(237, 179, 179);
+    }
+    .button2:hover {
+  background-color:lightblue;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.add-button {
+        position:relative;
+        left:230px;
+        padding: 10px 20px;
+        width:70px;
+        height:45px;
+        border-radius: 15px;
+        background-color: rgb(220, 33, 89);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+}
+
+
+.add-button:focus {
+    content:"added";
+  background-color: #68ed8a;
+}
+
+    #bestsellingbooks{
+        background-color:whitesmoke;
+        width:100%;
+        height: 660px;
+        z-index: 1;
+        margin:12px;
+        padding:75px 0 0 10px;
+    }
+    .bsbtitle{
+        position:relative;
+        top:5px;
+        left:550px;
+    }
+    .bsbsubtitle{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        position:relative;
+        left:548px;
+    }
+    .cards{
+        display:flex;
+        height:560px;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap:wrap;
+    }
+    .card1{
+        background-color: rgb(121, 120, 105);
+        margin:12px;
+        width:50px;
+        height: 530px;
+        flex-grow: 3;
+        box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+    }
+   
+    .card2{
+        background-color: rgb(127, 188, 223);
+        margin:12px;
+        width:50px;
+        height: 530px;
+        flex-grow: 3;
+        box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+    }
+    .card3{
+        background-color: rgb(191, 139, 190);
+        margin:12px;
+        width:50px;
+        height: 530px;
+        flex-grow: 3;
+        box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+    }
+    .card4{
+        background-color: rgb(161, 207, 146);
+        margin:12px;
+        width:50px;
+        height: 530px;
+        flex-grow: 3;
+        box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+    }
+    .bsbbooktype{
+        background-color: antiquewhite;
+        width: 42px;
+        height:35px;
+    }
+    .bsbbooktype h1{
+        margin:0;
+    }
+    .bsbimg1{
+        background-image: url("images/nfbook1.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    .booktitle{
+        position:relative;
+        left:10px;
+        font-weight:bolder;
+    }
+   
+    .price{
+    font-weight: bolder;
+    position:relative;
+    top:20px;
+    left:220px;
+    }
+    .bsbimg2{
+        background-image: url("images/nfbook2.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    .bsbimg3{
+        background-image: url("images/nfbook3.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    .bsbimg4{
+        background-image: url("images/nfbook4.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+  }
+  #recommendation{
+    background-color:whitesmoke;
+    width: 100%;
+    height: 1200px;
+    z-index:1;
+    padding:75px 0 0 10px;
+  }
+  #recommendation h1{
+    position:relative;
+    top:5px;
+    left:500px;
+  }
+  .recomsubtitle{
+    position:relative;
+    left:465px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+  }
+  .reccards{
+    padding-left: 10px;
+    background-color: whitesmoke;
+    display:flex;
+    height:1080px;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+  }
+  .reccard1{
+    background-color: #000000;
+    width: 350px;
+    height:500px;
+    margin:5px;
+    box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+  }
+  .booktitlerec1{
+    color:white;
+  }
+  .reccard1desc{
+    color:white;
+  }
+  .pricerec1{
+    float:right;
+    font-weight: bolder;
+    color:white;
+  }
+  .reccard2{
+    background-color:#87CEFA;
+    width: 350px;
+    height:500px;
+    margin:5px;
+    box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+  }
+  .reccard3{
+    background-color: #FFC0CB;
+    width: 350px;
+    height:500px;
+    margin:5px;
+    box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+  }
+  .reccard4{
+    background-color:  #98FF98;
+    width: 350px;
+    height:500px;
+    margin:5px;
+    box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+  }
+  .reccard5{
+    background-color:  #808080;
+    width: 350px;
+    height:500px;
+    margin:5px;
+    box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+  }
+  .reccard6{
+    background-color:#FFFF99;
+    width: 350px;
+    height:500px;
+    margin:5px;
+    box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+  }
+  .reccard7{
+    background-color:  #E6E6FA;
+    width: 350px;
+    height:500px;
+    margin:5px;
+    box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+  }
+  .reccard8{
+    background-color: #E6BE8A;
+    width: 350px;
+    height:500px;
+    margin:5px;
+    box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+  }
+  
+    #recommendation input{
+    width: 170px;
+    padding: 8px;
+    border: 1px solid #CCCCCC;
+    background-repeat:no-repeat;
+    background-image:url("images/search.png");
+    background-size: 12%;
+    background-position: right center;
+    background-repeat: no-repeat;
+    position:relative;
+    left:600px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    #recommendation input[type="text"]::placeholder {
+        color: #123abf;
+     }
+    .recimg1{
+        background-image: url("images/recbook1.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    .recimg2{
+        background-image: url("images/recbook2.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    .recimg3{
+        background-image: url("images/recbook3.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    .recimg4{
+        background-image: url("images/recbook4.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    .recimg5{
+        background-image: url("images/recbook5.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    .recimg6{
+        background-image: url("images/recbook6.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    .recimg7{
+        background-image: url("images/recbook7.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    .recimg8{
+        background-image: url("images/recbook8.png");
+        background-repeat:no-repeat;
+        background-size: 50%;
+        width: 300px;
+        height: 200px;
+        position:relative;
+        left:100px;
+    }
+    #review{
+        background-color:whitesmoke;
+        width:100%;
+        height:650px;
+        z-index:1;
+        padding:75px 0 0 10px;
+    }
+    #review h1{
+        position: relative;
+        left:380px;
+    }
+    .revheader{
+        position:relative;
+        left: 160px;
+    }
+    .reviewcards{
+        width: 100%;
+        height:670px;
+        display:flex;
+        flex-direction:column;
+        flex-wrap: wrap;
+    }
+    .review1{
+        background-color: #4682B4;
+        width:100%;
+        height:190px;
+        margin: 10px 0px 10px 0px;
+        box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+    }
+    .reviewpic1{
+        width:60px;
+        height:60px;
+        border-radius: 30px;
+        background-image: url("images/reviewpic1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        float:left;
+        margin-right: 8px;
+    }
+    .reviewname{
+        font-size: large;
+        font-weight: bolder;
+    }
+    .reviewcontent{
+        font-size: large;
+        font-weight: bolder;
+    }
+    .reviewlineheight{
+        line-height: 1.5;
+    }
+    .review2{
+        background-color: #FF7F50;
+        width:100%;
+        height: 190px;
+        margin: 10px 0px 10px 0px;
+        box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+    }
+    .reviewpic2{
+        width:60px;
+        height:60px;
+        border-radius: 30px;
+        background-image: url("images/reviewpic2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        float:left;
+        margin-right: 8px;
+    }
+    .review3{
+        background-color: #808000;
+        width:100%;
+        height:190px;
+        margin: 10px 0px 10px 0px;
+        box-shadow: 5px 5px 5px 5px rgb(193, 187, 187);
+    }
+    .reviewpic3{
+        width:60px;
+        height:60px;
+        border-radius: 30px;
+        background-image: url("images/reviewpic3.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        float:left;
+        margin-right: 8px;
+    }
+    .review-form {
+    width: 500px;
+    height:500px;
+    margin: 0 auto;
+    z-index:1;
+}
+.review-form h1{
+    position:relative;
+    left:600px;
+}
+   .form-group {
+    margin-bottom: 20px;
+}
+
+    label {
+    display: block;
+    font-weight: bold;
+}
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+    width: 100%;
+    padding:5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+#footer{
+    background-color: #CCCCCC;
+    position: relative;
+    top:1180px;
+    height:140px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+#footer a{
+    height:60px;
+    width:60px;
+    background-color:#FFFFFF;
+    border-radius: 30px;
+    text-align: center;
+    margin:10px;
+    line-height:69px;
+    box-shadow:1px 4px 2px 2px #dcdde1;
+}
+#footer a i{
+    transition:all 0.3s linear;
+}
+#footer a:hover i{
+    transform:scale(1.4);
+}
+.fa-instagram{
+    color:#e84393;
+}
+.fa-youtube{
+    color:#e84118;
+}
+.fa-linkedin{
+    color:#0097e6;
+}
+.fa-twitter{
+    color:#0097e6;
+}
+.footer-links{
+    background-color: #CCCCCC;
+    position:relative;
+    top:1150px;
+    height:100px;
+    width: 100%;
+}
+.footer-links a{
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top:10px;
+    left:400px;
+    margin:50px;
+    line-height: 40px;
+}
+.backtotop{
+    position: relative;
+    left:228px;
+}
+</style>
+
+</head>
+
+<body>
+
+    <div id="container">
+
+      <div id="navbar">
+
+        <div id="bookshoplogo">
+            <img src="images/bookkshoplogo.png" alt="Image" width="auto" height="70">
+            <p>Way to wisdom</p>
+        </div>
+
+        <div id="top-menu">
+         <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#introsection">Intro Section</a></li>
+            <li><a href="#bestsellingbooks">Best Selling Books</a></li>
+            <li><a href="#recommendation">Our Recommendations</a></li>
+            <li><a href="#review">Reviews</a</li>
+            <li><a href="#footer">Footer</a></li>
+         </ul>
+        </div>
+
+      </div>
+
+      <div id="home">
+        <h1><strong>Develop your emagination</strong></h1>
+      </div>
+
+      <div id="introsection">
+         <div class="name">
+            <h1>WELCOME TO WEBSITE OF BOOK SHOP:</h1>
+
+            <p class="shopname">The Bookworm's Retreat</p>
+
+            <p class="shopsubtitle">A Paradise for Bibliophiles</p>
+
+            <button class="button button2" type="button">
+                <a href="#bestsellingbooks">
+                <strong>Best Selling Books</strong></a></button>
+         </div>
+        <div class="coverpage"></div>
+
+      </div>
+
+      <div id="bestsellingbooks">
+        <h1 class="bsbtitle">BEST SELLING BOOKS</h1>
+        <p class="bsbsubtitle">Uncovering the Greatest Best Sellers of All Time</p>
+
+        <div class="cards">
+            <div class="card1">
+                <div class="bsbbooktype">
+                    <h1>NF</h1>
+                </div>
+
+                <div class="bsbimg1"></div>
+                <p class="booktitle">"The Diary of a Young Girl" by Anne Frank</p>
+                <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+                <p>Anne Frank's "The Diary of a Young Girl" is a touching and insightful account of a Jewish girl's life in hiding during the Holocaust</p>
+                    
+                <p class="price">prize:₹136.00</p>
+            </div>
+            <div class="card2">
+                <div class="bsbbooktype">
+                    <h1> F</h1>
+                </div>
+
+                <div class="bsbimg2"></div>
+
+                <p class="booktitle">"Pride and Prejudice" by Jane Austen </p>
+                
+                <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+                <p>"Sapiens" provides a sweeping overview of human history, offering intriguing insights into our species' journey from ancient times to modern civilization.</p>
+                    
+                <p class="price">prize:₹190.00</p>
+            </div>
+
+
+            <div class="card3">
+                <div class="bsbbooktype">
+                    <h1>NF</h1>
+                   </div>
+
+                   <div class="bsbimg3"></div>
+                <p class="booktitle"> "A Brief History of Humankind" by Yuval Noah Harari</p>
+                
+                <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+                <p>"Pride and Prejudice" is a beloved classic that delves into the intricacies of romance and social expectations through the captivating tale of Elizabeth Bennet and Mr. Darcy.</p>
+                    
+                <p class="price">prize:₹479.00</p>
+            </div>
+
+
+            <div class="card4">
+                <div class="bsbbooktype">
+                    <h1> F</h1>
+                </div>
+
+                <div class="bsbimg4"></div>
+                <p class="booktitle"> "To Kill a Mockingbird" by Harper Lee</p>
+                
+                <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+                <p>"To Kill a Mockingbird" is a powerful and thought-provoking novel that confronts racial inequality and explores the loss of innocence through the eyes of young Scout Finch in 1930s Alabama.</p>
+                    
+                    <p class="price">prize:₹382.00</p>
+            </div>
+        </div>
+      </div>
+
+      <div id="recommendation">
+        <h1>OUR RECOMMENDATIONS</h1>
+        <p class="recomsubtitle">Curated Literary Treasures: Our Handpicked Recommendations</p>
+        <input type="text" placeholder="search... " />
+
+        <div class="reccards">
+            <div class="reccard1" >
+                <div class="bsbbooktype">
+                    <h2>F</h2>
+                </div>
+
+                <div class="recimg1"></div>
+                <p class="booktitlerec1">"The Alchemist" by Paulo Coelho</p>
+                <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+                <p ><span class="reccard1desc">"The Alchemist" by Paulo Coelho: A mesmerizing allegorical novel about a young shepherd's pursuit of his dreams and the transformative power of following one's personal legend.</span></p>
+                    
+                <p class="pricerec1">prize:₹581.00</p>
+            </div>
+            <div class="reccard2" >
+                <div class="bsbbooktype">
+                    <h2>F</h2>
+                </div>
+
+                <div class="recimg2"></div>
+                <p class="booktitle">"The Handmaid's Tale" by Margaret Atwood</p>
+                <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+                <p>
+                    "The Handmaid's Tale" by Margaret Atwood: A chilling and thought-provoking dystopian tale that explores a society where women's rights and autonomy are severely restricted.</p>
+                    
+                <p class="price">prize:₹339.00</p>
+            </div>
+            <div class="reccard3" >
+            <div class="bsbbooktype">
+                <h2>F</h2>
+            </div>
+
+            <div class="recimg3"></div>
+            <p class="booktitle">"The Kite Runner" by Khaled Hosseini</p>
+            <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+            <p>"The Kite Runner" by Khaled Hosseini: A gripping and emotionally resonant story of friendship, betrayal, and redemption set against the backdrop of war-torn Afghanistan.</p>
+                
+            <p class="price">prize:₹409.00</p>
+            </div>
+            <div class="reccard4" >
+            <div class="bsbbooktype">
+                <h2>F</h2>
+            </div>
+    
+            <div class="recimg4"></div>  
+            <p class="booktitle">"Gone Girl" by Gillian Flynn</p>
+            <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+            <p>"Gone Girl" by Gillian Flynn: A twisted and suspenseful psychological thriller that delves into the dark complexities of a crumbling marriage.</p>
+                    
+            <p class="price">prize:₹1164.00</p>
+            </div>
+            <div class="reccard5" >
+                <div class="bsbbooktype">
+                    <h2>NF</h2>
+                </div>
+        
+                <div class="recimg5"></div>
+                <p class="booktitle">"Thinking, Fast and Slow" by Daniel Kahneman</p>
+                <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+                <p> "Thinking, Fast and Slow" by Daniel Kahneman: Unveiling the mind's inner workings, this book explores two thinking systems that drive our decision-making.</p>
+                        
+                <p class="price">prize:₹421.00</p>   
+            </div>
+            <div class="reccard6" >
+                <div class="bsbbooktype">
+                    <h2>NF</h2>
+                </div>
+        
+                <div class="recimg6"></div>
+                <p class="booktitle">"Becoming" by Michelle Obama</p>
+                <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+                <p> 
+                    "Becoming" by Michelle Obama: A captivating memoir chronicling Michelle Obama's life, from her humble beginnings to becoming a powerful advocate for change and an inspiration to millions.</p>
+                        
+                <p class="price">prize:₹1447.00</p>            
+            </div>
+            <div class="reccard7" >
+                <div class="bsbbooktype">
+                    <h2>NF</h2>
+                </div>
+        
+                <div class="recimg7"></div>
+                <p class="booktitle">"Educated" by Tara Westover</p>
+                <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+                <p>"Educated" by Tara Westover: A compelling memoir of triumph over adversity as Tara Westover escapes a restrictive upbringing to pursue knowledge and forge her own path.</p>
+                        
+                <p class="price">prize:₹1578.00</p>            
+            </div>
+            <div class="reccard8" >
+                <div class="bsbbooktype">
+                    <h2>NF</h2>
+                </div>
+        
+                <div class="recimg8"></div>
+                <p class="booktitle">"The Subtle Art of Not Giving a F*ck" by Mark Manson</p>
+                <button class="add-button" onclick="toggleButton()" tabindex="0">ADD++</button>
+                <p>"The Subtle Art of Not Giving a F*ck" by Mark Manson: A brutally honest guide to prioritizing what truly matters and letting go of the things that don't.</p>
+                <p class="price">prize:₹271.00</p> 
+            </div>
+        </div>
+      </div>
+
+      <div id="review">
+        <h1>Reader Reviews: Hear What Our Customers Have to Say</h1>
+        <div class="reviewcards">
+
+        <div class="review1">
+
+            <div class="reviewpic1"></div>
+            <p><span class="reviewname">Name:</span> Divya teja</p>
+            <br />
+            <p><span class="reviewcontent">My review:</span><span class="reviewlineheight">The Bookworm's Retreat is an enchanting sanctuary for book enthusiasts. The moment you step inside, you're greeted by a cozy atmosphere and a vast collection of carefully selected books. The staff is always on hand to offer personalized recommendations and engage in delightful conversations about literature. With genres ranging from classics to contemporary bestsellers, this charming bookstore has become my go-to place for quiet reflection, inspiring reads, and the pure joy of immersing myself in the world of books.</span></p>
+        </div>
+
+        <div class="review2">
+
+            <div class="reviewpic2"></div>
+            <p><span class="reviewname">Name:</span> Bandi preetham reddy</p>
+            <br />
+            <p><span class="reviewcontent">My review:</span><span class="reviewlineheight">The Bookworm's Retreat is a book lover's paradise. The serene ambiance, friendly staff, and thoughtfully curated selection create an inviting haven for readers of all kinds. Whether you're seeking a gripping thriller, a heartwarming romance, or an insightful non-fiction title, you're sure to find a treasure here. The joy of browsing through their shelves, discovering new authors, and indulging in the magic of storytelling is an experience I cherish. The Bookworm's Retreat is not just a bookstore; it's a sanctuary that feeds the soul and ignites a lifelong love for reading.</span></p>
+        </div>
+
+        <div class="review3">
+
+            <div class="reviewpic3"></div>
+            <p><span class="reviewname">Name:</span> Sumith chandra </p>
+            <br />
+            <p><span class="reviewcontent">My review:</span><span class="reviewlineheight">The Bookworm's Retreat is a bibliophile's dream come true. This cozy bookshop exudes a sense of tranquility and wonder, inviting you to lose yourself among its shelves. The knowledgeable staff's passion for literature shines through as they guide you to hidden literary gems. From timeless classics to contemporary page-turners, the diverse selection caters to all reading preferences. Stepping into The Bookworm's Retreat is like entering a portal to different worlds, where imagination takes flight and the love for books is celebrated. It's a destination where book lovers find solace, inspiration, and endless literary delights.</span></p>
+        </div>
+
+        </div>
+        <div class="reviewform">
+            <h1><span class="revheader">Customer Review Form</span></h1>
+        <form class="review-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="review">Review:</label>
+            <textarea id="review" name="review" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="submit-button">Submit</button>
+          </div>
+        </form>
+      </div>
+
+     </div>
+
+     <div id="footer">
+        <a href="https://www.facebook.com" target="_blank">
+            <i class="fa fa-2x fa-facebook"></i>
+        </a>
+
+        <a href="https://www.instagram.com" target="_blank">
+            <i class="fa fa-2x fa-instagram"></i>
+        </a>
+
+        <a href="https://www.twitter.com" target="_blank">
+            <i class="fa fa-2x fa-twitter"></i>
+        </a>
+          
+        <a href="https://www.youtube.com" target="_blank">
+            <i class="fa fa-2x fa-youtube"></i>
+        </a>
+
+        <a href="https://www.linkedin.com" target="_blank">
+            <i class="fa fa-2x fa-linkedin"></i>
+        </a>
+     </div>
+     <div class="footer-links">
+        <a href="https://www.elegantthemes.com/policy/service/" target="_blank">Terms of service</a>
+        <a href="https://www.elegantthemes.com/policy/privacy/" target="_blank">Privacy Policy</a>
+        <a href="https://www.termsfeed.com/blog/sample-copyright-notices/" target="_blank">Copyright Information</a>
+        <br />
+      <a href="#home" class="back-to-top"><span class="backtotop">Back to Top</span></a>
+    </div>
+</div>
+</body>
+</html>
